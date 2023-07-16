@@ -1,0 +1,39 @@
+[package]
+name = "matcher"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies.pnet]
+version="0.28.0"
+
+[dependencies]
+
+# Dependencies for redbpf
+redbpf = { version = "2.2.0", features = ["load"] }
+tokio = { version = "1.0", features = ["rt", "signal", "time", "io-util", "net", "sync"] }
+tracing-subscriber = "0.2"
+tracing = "0.1"
+futures = "0.3"
+
+# A pretty normal queue
+queues = "1.0.2"
+# Thread-safe hashmap
+dashmap = "4.0.1"
+# Ctrl-C handling
+ctrlc = "3.2.0"
+# For time and socket.recvfrom
+nix = "0.23.1"
+# Efficient Mutex
+parking_lot = "0.11"
+# Efficient channel
+crossbeam-channel = "0.5"
+
+# For socket creation
+libc = "0.2"
+# Command line argument parsing
+clap = { version = "3.0.10", features = ["derive"] }
+
+# redBPF program to retrieve kernel events
+kernel_probes = { path = "./kernel_probes" }
