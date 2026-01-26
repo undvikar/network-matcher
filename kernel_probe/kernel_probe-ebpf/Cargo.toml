@@ -1,0 +1,17 @@
+[package]
+name = "kernel_probe-ebpf"
+version = "0.1.0"
+edition.workspace = true
+
+[dependencies]
+kernel_probe-common = { path = "../kernel_probe-common" }
+
+aya-ebpf = { workspace = true }
+aya-log-ebpf = { workspace = true }
+
+[build-dependencies]
+which = { workspace = true }
+
+[[bin]]
+name = "kernel_probe"
+path = "src/main.rs"
